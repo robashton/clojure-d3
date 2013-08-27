@@ -13332,6 +13332,10 @@ cljs.core.comparator = function(a) {
   }
 };
 var d3demo = {init:function() {
-  return d3.select("body").style("background-color", "black")
+  return d3demo.draw_circle.call(null)
 }};
 goog.exportSymbol("d3demo.init", d3demo.init);
+d3demo.svg_container = d3.select("body").append("svg").attr("width", 200).attr("height", 200);
+d3demo.draw_circle = function() {
+  return d3demo.svg_container.append("circle").attr("cx", 30).attr("cy", 30).attr("r", 20)
+};
