@@ -13331,7 +13331,7 @@ cljs.core.comparator = function(a) {
     return cljs.core.truth_(a.call(null, b, c)) ? -1 : cljs.core.truth_(a.call(null, c, b)) ? 1 : 0
   }
 };
-var d3_demo = {init:function() {
-  return null
+var d3demo = {init:function() {
+  return d3.select("body").style("background-color", "black")
 }};
-goog.exportSymbol("d3_demo.init", d3_demo.init);
+goog.exportSymbol("d3demo.init", d3demo.init);
