@@ -4,6 +4,17 @@
   <body onload="d3demo.init();">
     <div id="container">This is an example</div>
     <script type="text/javascript" src="d3.v3.js"></script>
+    <script type="text/javascript">
+function get_random_color() {
+    var letters = '0123456789ABCDEF'.split('');
+    var color = '#';
+    for (var i = 0; i < 6; i++ ) {
+        color += letters[Math.round(Math.random() * 15)];
+    }
+    return color;
+}
+</script>
+  
     <script type="text/javascript" src="game.js"></script>
   </body>
 

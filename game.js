@@ -13332,10 +13332,19 @@ cljs.core.comparator = function(a) {
   }
 };
 var d3demo = {init:function() {
-  return d3demo.draw_circle.call(null)
+  d3demo.mouse.call(null, 50, 50);
+  return d3demo.mouse.call(null, 200, 200)
 }};
 goog.exportSymbol("d3demo.init", d3demo.init);
-d3demo.svg_container = d3.select("body").append("svg").attr("width", 200).attr("height", 200);
-d3demo.draw_circle = function() {
-  return d3demo.svg_container.append("circle").attr("cx", 30).attr("cy", 30).attr("r", 20)
+d3demo.svg_container = d3.select("body").append("svg").attr("width", 1E3).attr("height", 1E3);
+d3demo.circle = function(a, b, c) {
+  return d3demo.svg_container.append("circle").attr("cx", a).attr("cy", b).attr("r", c)
 };
+d3demo.mouse = function(a, b) {
+  d3demo.circle.call(null, a + 30, b + 30, 20);
+  d3demo.circle.call(null, a + 90, b + 30, 20);
+  return d3demo.circle.call(null, a + 60, b + 65, 30)
+};
+setInterval(function() {
+  return d3demo.svg_container.selectAll("circle").transition().duration(250).style("fill", get_random_color())
+}, 250);
